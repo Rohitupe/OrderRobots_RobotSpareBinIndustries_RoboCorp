@@ -3,7 +3,8 @@ Documentation   Order Robot on Robot Spare Bin Industries.
 Library         RPA.Browser
 Library         RPA.HTTP    # To use Download Functionality
 Variables       variables/variables.py
-Resource         Scripts/excel.robot
+Resource        Scripts/excel.robot
+Resource        Scripts/SubmitOrders.robot
 
 
 *** Keywords ***
@@ -26,3 +27,6 @@ Order Robot Spare Bin IND
     Download Orders File From Website
     Open Order Robots Website
     ByPass Popup Message
+    Fill The Form to Order Robot
+
+
