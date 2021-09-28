@@ -3,30 +3,23 @@ Documentation   Order Robot on Robot Spare Bin Industries.
 Library         RPA.Browser
 Library         RPA.HTTP    # To use Download Functionality
 Variables       variables/variables.py
-Resource        Scripts/excel.robot
-Resource        Scripts/SubmitOrders.robot
+Resource        resource/excel.robot
 
 
 *** Keywords ***
 Download Orders File From Website
     # Download Orders.csv File and Close Chrome
-    Download    ${WebURL}${File Name}   overwrite=True
+    Download    ${Web URL}${File Name}   overwrite=True
 
-# +
 *** Keywords ***
 Open Order Robots Website
-    Open Available Browser    ${WebURL}${Robot Orders}
+    Open Available Browser    ${Web URL}${Robot Orders}
     Maximize Browser Window
-    
-ByPass Popup Message
-    Wait Until Page Contains Element    xpath://div[@class="modal-header"]    ${Dmedium}
-    Click Element   xpath://div[@class="alert-buttons"]/button[1]
-# -
+
 *** Tasks ***
-Order Robot Spare Bin IND
+Order Robot Spare Bin Industries
+    # perform below Tasks
     Download Orders File From Website
     Open Order Robots Website
-    ByPass Popup Message
-    Fill The Form to Order Robot
-
-
+    Read Orders Excel File 
+    #[Teardown]  Close Browser
