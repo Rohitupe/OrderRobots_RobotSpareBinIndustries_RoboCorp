@@ -10,8 +10,6 @@ Read Orders Excel File
     ${Orders Data} =  Read Table From Csv   ${File Name}  header=True
     FOR    ${Order}    IN    @{Orders Data}
         Fill The Form to Order Robot    ${Order}
+        Reload Page
+        Wait Until Keyword Succeeds    3    1    Fill The Form to Order Robot   ${Order}      
     END
-
-
-
-

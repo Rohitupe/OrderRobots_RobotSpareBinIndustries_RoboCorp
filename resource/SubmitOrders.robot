@@ -4,11 +4,19 @@ Library             RPA.Browser
 Variables           variables/variables.py
 Library             functions/functions.py
 
+# +
 *** Keywords ***
 ByPass Popup Message
     # By Pass Popup Message at the Start
     Wait Until Page Contains Element    ${Popup Window}    ${D Medium}
     Click Element   ${Popup Ok Button}
+    
+Wait Until It get Success
+    [Arguments]   ${KW}   ${KWARGS}  ${Data}
+    Press Keys   None   CTRL+SHIFT+R
+    Reload Page
+    Wait Until Keyword Succeeds    10s  3s   ${KW}   ${KWARGS}  ${Data}
+# -
 
 *** Keywords ***
 Fill The Form to Order Robot
@@ -17,11 +25,21 @@ Fill The Form to Order Robot
     
     # return xpath string from lambda function - functions/functions.py
     ${Data S}=    Body Data   ${Order}[Body]
-    [Return]    ${Data S}
+    [Return]    ${Data S}    
+    
+    Wait Until It get Success    Fill Form     ${Order}     ${Data S}
+
+*** Keywords ***
+Fill Form
+    [Arguments]   ${Order}  ${Data S}
+    
+    # Reload page
+    Press Keys   None   CTRL+SHIFT+R
+    Reload Page
     
     # By pass popup message - every time user submits form
     ByPass Popup Message
-
+    
     # Fill Up form
     Wait Until Page Contains Element    ${Order Robot Identifer}   ${D Medium}
     Select From List By Value    ${Head}    ${Order}[Head]  
@@ -31,5 +49,3 @@ Fill The Form to Order Robot
     Click Button    ${Order First}
     Sleep    ${D Small}
     Click Button    ${Order Another}
-
-
