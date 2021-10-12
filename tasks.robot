@@ -22,4 +22,4 @@ Order Robot Spare Bin Industries
     Download Orders File From Website
     Open Order Robots Website
     Read Orders Excel File 
-    #[Teardown]  Close Browser
+    [Teardown]  Close Browser

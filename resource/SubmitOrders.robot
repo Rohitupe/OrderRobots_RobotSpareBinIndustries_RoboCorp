@@ -3,6 +3,7 @@ Documentation       Fill Orders Robot Form
 Library             RPA.Browser
 Variables           variables/variables.py
 Library             functions/functions.py
+Resource            resource/GenerateOutputReport.robot
 
 # +
 *** Keywords ***
@@ -15,7 +16,7 @@ Wait Until It get Success
     [Arguments]   ${KW}   ${KWARGS}  ${Data}
     Press Keys   None   CTRL+SHIFT+R
     Reload Page
-    Wait Until Keyword Succeeds    10s  3s   ${KW}   ${KWARGS}  ${Data}
+    Wait Until Keyword Succeeds    2x  3s   ${KW}   ${KWARGS}  ${Data}
 # -
 
 *** Keywords ***
@@ -46,6 +47,9 @@ Fill Form
     Click Element    ${Data S}
     Input Text    ${Legs}    ${Order}[Legs]
     Input Text    ${Address}    ${Order}[Address]
+    Click Button    ${Preview Button}
+    Wait Until Page Contains Element    ${Preview Image}    ${D Large}
     Click Button    ${Order First}
     Sleep    ${D Small}
+    get text from page
     Click Button    ${Order Another}

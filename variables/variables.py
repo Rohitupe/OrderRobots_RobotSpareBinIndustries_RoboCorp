@@ -21,6 +21,10 @@ legs = r'//input[@type="number" and @class="form-control"]'
 address = 'id:address'
 order_first = 'id:order'
 order_another = 'id:order-another'
+preview_button = 'id:preview'
+preview_image = 'id:robot-preview-image'
 # -
+# Xpaths for Generate Output Report
+receipt = 'id:receipt'
 
 
