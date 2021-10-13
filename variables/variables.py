@@ -23,8 +23,18 @@ order_first = 'id:order'
 order_another = 'id:order-another'
 preview_button = 'id:preview'
 preview_image = 'id:robot-preview-image'
-# -
+# +
 # Xpaths for Generate Output Report
-receipt = 'id:receipt'
+
+# $$ Xpath for Tex Output
+receipt_xpath = 'xpath://div[@id="receipt"]/'
+receipt_title = receipt_xpath + 'h3'
+receipt_datetime = receipt_xpath + 'div[1]'
+receipt_id = receipt_xpath + 'p[1]'
+receipt_address = receipt_xpath + 'p[2]'
+receipt_order = receipt_xpath + 'div[@id="parts"]'
+receipt_note = receipt_xpath + 'p[3]'
 
 
+# $$ Xpath for Image
+robot = 'xpath://div[@id="robot-preview-image"]'

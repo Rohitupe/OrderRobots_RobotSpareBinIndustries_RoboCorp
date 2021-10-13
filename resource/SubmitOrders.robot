@@ -16,7 +16,7 @@ Wait Until It get Success
     [Arguments]   ${KW}   ${KWARGS}  ${Data}
     Press Keys   None   CTRL+SHIFT+R
     Reload Page
-    Wait Until Keyword Succeeds    2x  3s   ${KW}   ${KWARGS}  ${Data}
+    Wait Until Keyword Succeeds    30s   3s   ${KW}   ${KWARGS}  ${Data}
 # -
 
 *** Keywords ***
