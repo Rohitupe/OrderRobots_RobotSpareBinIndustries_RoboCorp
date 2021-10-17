@@ -12,7 +12,8 @@ def PDFGeneration(Information, Count, file_path):
             if ".png" in info:
                 document.image(info, x=15, y=60)
             elif len(info) > 50:
-                document.cell(txt=info)
+                document.ln(5)
+                document.multi_cell(w=0, txt=info)
             else:
                 document.cell(txt=info, ln=1)
         except Exception as e:

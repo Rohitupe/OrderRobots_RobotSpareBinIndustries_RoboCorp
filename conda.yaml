@@ -14,4 +14,3 @@ dependencies:
     # https://pypi.org/
     - rpaframework==11.1.3 # https://rpaframework.org/releasenotes.html
     - fpdf2==2.4.5 # pip package to work with PDF Files in Python
-    - pillow==8.3.1 # library to work with images useed for resizing image
