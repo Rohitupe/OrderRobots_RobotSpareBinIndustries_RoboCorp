@@ -30,6 +30,7 @@ Fill The Form to Order Robot
     
     Wait Until It get Success    Fill Form     ${Order}     ${Data S}
 
+# +
 *** Keywords ***
 Fill Form
     [Arguments]   ${Order}  ${Data S}
@@ -50,6 +51,9 @@ Fill Form
     Click Button    ${Preview Button}
     Wait Until Page Contains Element    ${Preview Image}    ${D Large}
     Click Button    ${Order First}
-    Sleep    ${D Small}
-    get text from page
+    Wait Until Page Contains Element    ${Receipt Xpath}    ${D Small}
+
+Get Output Result
+    [Arguments]    ${Count}    ${File Path}
+    get text from page   ${Count}    ${File Path}
     Click Button    ${Order Another}

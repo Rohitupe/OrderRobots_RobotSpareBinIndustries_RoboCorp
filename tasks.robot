@@ -6,6 +6,9 @@ Variables       variables/variables.py
 Resource        resource/excel.robot
 
 
+*** Variables ***
+${File Path}    ${CURDIR}
+
 *** Keywords ***
 Download Orders File From Website
     # Download Orders.csv File and Close Chrome
@@ -21,5 +24,5 @@ Order Robot Spare Bin Industries
     # perform below Tasks
     Download Orders File From Website
     Open Order Robots Website
-    Read Orders Excel File 
+    Read Orders Excel File      ${File Path}
     [Teardown]  Close Browser
