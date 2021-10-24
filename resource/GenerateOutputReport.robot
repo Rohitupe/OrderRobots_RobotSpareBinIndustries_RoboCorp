@@ -17,7 +17,7 @@ get text from page
     ${address}=   Get Text    ${Receipt Address}
     ${order}=   Get Text    ${Receipt Order}
     ${note}=  Get Text    ${Receipt Note}
-    Screenshot   ${Robot}    ${File Path}${/}output${/}file.png
+    Screenshot   ${Robot}    ${File Path}${/}output${/}pdf${/}file.png
     
     ${Receipt}=   Create List   
             ...  ${title}
@@ -26,6 +26,6 @@ get text from page
             ...  ${address}  
             ...  ${order}    
             ...  ${note}
-            ...  ${File Path}${/}output${/}file.png
+            ...  ${File Path}${/}output${/}pdf${/}file.png
     
-    PDF Generation    ${Receipt}    ${Count}    ${File Path}${/}output${/}
+    PDF Generation    ${Receipt}    ${Count}    ${File Path}${/}output${/}pdf${/}

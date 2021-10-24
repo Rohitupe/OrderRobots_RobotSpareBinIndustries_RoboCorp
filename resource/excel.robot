@@ -18,4 +18,4 @@ Read Orders Excel File
         ${Count}=   Evaluate   ${Count} + 1
         Get Output Result   ${Count}   ${File Path}
     END
-    Remove File     ${File Path}${/}output${/}file.png
+    Remove File     ${File Path}${/}output${/}pdf${/}file.png
