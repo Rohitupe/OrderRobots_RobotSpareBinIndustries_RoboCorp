@@ -5,6 +5,8 @@ Library         RPA.HTTP    # To use Download Functionality
 Variables       variables/variables.py
 Resource        resource/excel.robot
 Resource        resource/zipoutput.robot
+Library         RPA.Robocorp.Vault
+Library         functions/functions.py
 
 
 *** Variables ***
@@ -13,11 +15,11 @@ ${File Path}    ${CURDIR}
 *** Keywords ***
 Download Orders File From Website
     # Download Orders.csv File and Close Chrome
-    Download    ${Web URL}${File Name}   overwrite=True
+    Download    ${Website URL}${File Name}   overwrite=True
 
 *** Keywords ***
 Open Order Robots Website
-    Open Available Browser    ${Web URL}${Robot Orders}
+    Open Available Browser    ${Website URL}${Robot Orders}
     Maximize Browser Window
 
 *** Tasks ***

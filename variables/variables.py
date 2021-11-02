@@ -5,7 +5,7 @@ d_medium = 5
 d_large = 10
 
 # Website URL/File name
-web_URL = r"https://robotsparebinindustries.com/"
+# web_URL = r"https://robotsparebinindustries.com/"
 file_name = "orders.csv"
 robot_orders = r"#/robot-order"
 
@@ -38,3 +38,11 @@ receipt_note = receipt_xpath + '/p[3]'
 
 # $$ Xpath for Image
 robot = 'xpath://div[@id="robot-preview-image"]'
+
+# +
+# get Website URL from the Vault.json
+from RPA.Robocorp.Vault import Vault
+
+# read secrets from vault.json file
+_secret = Vault().get_secret("WebURL")
+WebsiteURL = _secret["WebsiteURL"]
